@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>使用原生的Ajax来发送数据</title>
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <div id="demo">
+            <h2>AJAX experiment</h2></div>
+        <button type="button" onclick="loadDoc()">click on me</button>
+        <script>
+            function loadDoc() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        document.getElementById("demo").innerHTML = xhttp.response;
+                    }
+                };
+                xhttp.open("GET", "http://192.168.55.128/ajaxtest", true);
+                xhttp.send();
+            }
+
+        </script>
+    </body>
+
+</html>
